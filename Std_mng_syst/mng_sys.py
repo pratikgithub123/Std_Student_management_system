@@ -33,3 +33,37 @@ def login_page():
     '''
     # Create submit button for databases
 
+    def submit():
+        # Create a databases or connect to one
+        conn = sqlite3.connect('address_book.db')
+
+        # Create cursor
+        c = conn.cursor()
+
+        # Insert into table
+        c.execute("INSERT INTO addresses VALUES (:name, :fathers_name, :mothers_name, :address, :gender, :date_of_birth,:phone_num)",
+                  {
+                      'name':name.get(),
+                      'fathers_name':fathers_name.get(),
+                      'mothers_name':mothers_name.get(),
+                      'address':address.get(),
+                      'gender':gender.get(),
+                      'date_of_birth':date_of_birth.get(),
+                      'phone_num':phone_num.get()
+                  })
+        # showinfo messagebox
+        messagebox.showinfo("Adresses", "Inserted Successfully")
+
+        conn.commit()
+
+        conn.close()
+
+        # clear the text boxes
+        name.delete(0,END)
+        fathers_name.delete(0,END)
+        mothers_name.delete(0,END)
+        address.delete(0, END)
+        gender.delete(0, END)
+        date_of_birth.delete(0, END)
+        phone_num.delete(0, END)
+
