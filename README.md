@@ -1,3 +1,4 @@
+<img width="670" alt="Student Management System" src="https://user-images.githubusercontent.com/84695197/135827302-96c9e9f9-f2b0-45da-926a-b1f10fa2ea8d.PNG">
 ##Student Management System
 Student management system is a GUI based project  made by using Python and Tkinter .
 IT help to keep the records of students in organised way.it helps in finding the data whenever is needed.
