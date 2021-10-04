@@ -134,3 +134,108 @@ def login_page():
 
 
     # Create edit function to update a record
+    def edit():
+
+        global editor
+
+        editor = Tk()
+        editor.title('Update Data')
+
+        editor.geometry('400x400')
+        editor.configure(bg="lightblue")
+
+        # Create a databases or connect to one
+        conn = sqlite3.connect('address_book.db')
+
+        # Create cursor
+        c = conn.cursor()
+
+        record_id = delete_box.get()
+
+        # query of the database
+        c.execute("SELECT * FROM addresses WHERE oid=" + record_id)
+
+        records = c.fetchall()
+        # print(records)
+
+        #Creating global variable for all text boxes
+        global name_editor
+        global fathers_name_editor
+        global mothers_name_editor
+        global address_editor
+        global gender_editor
+        global date_of_birth_editor
+        global phone_num_editor
+
+
+
+        # Create text boxes
+        name_editor = Entry(editor, font=("Times", 15, "bold"),bg="white",width=30)
+        name_editor.grid(row=0, column=1,padx=3,pady=5)
+
+        fathers_name_editor = Entry(editor, font=("Times", 15, "bold"),bg="white", width=30)
+        fathers_name_editor.grid(row=1, column=1,padx=3,pady=5)
+
+        mothers_name_editor = Entry(editor, font=("Times", 15, "bold"),bg="white", width=30)
+        mothers_name_editor.grid(row=2, column=1,padx=3,pady=5)
+
+        address_editor = Entry(editor, font=("Times", 15, "bold"),bg="white", width=30)
+        address_editor.grid(row=3, column=1,padx=3,pady=5)
+
+        gender_editor = Entry(editor, font=("Times", 15, "bold"),bg="white", width=30)
+        gender_editor.grid(row=3, column=1,padx=3,pady=5)
+
+        date_of_birth_editor = Entry(editor, font=("Times", 15, "bold"),bg="white", width=30)
+        date_of_birth_editor.grid(row=4, column=1,padx=3,pady=5)
+
+        phone_num_editor = Entry(editor, font=("Times", 15, "bold"),bg="white",width=30)
+        phone_num_editor.grid(row=5,column=1,padx=3,pady=5)
+
+
+
+        # Create textbox labels
+        name_label = Label(editor, font=("Times", 15, "bold"),bg="lightblue", text="Students Name")
+        name_label.grid(row=0, column=0, padx=3,pady=5)
+
+        fathers_name_label = Label(editor, font=("Times", 15, "bold"),bg="lightblue", text="Fathers Name")
+        fathers_name_label.grid(row=1, column=0,padx=3,pady=5)
+
+        mothers_name_label = Label(editor, font=("Times", 15, "bold"),bg="lightblue", text="Mothers Name")
+        mothers_name_label.grid(row=2, column=0,padx=3,pady=5)
+
+        address_label = Label(editor, font=("Times", 15, "bold"),bg="lightblue", text="Adress")
+        address_label.grid(row=3, column=0,padx=3,pady=5)
+
+        gender_label = Label(editor, font=("Times", 15, "bold"),bg="lightblue", text="Gender")
+        gender_label.grid(row=3, column=0,padx=3,pady=5)
+
+        date_of_birth_label = Label(editor, font=("Times", 15, "bold"),bg="lightblue", text="DOB")
+        date_of_birth_label.grid(row=4, column=0,padx=3,pady=5)
+
+        phone_num_label =Label(editor, font=("Times", 15, "bold"),bg="lightblue",text="Phone No")
+        phone_num_label.grid(row=5,column=0,padx=3,pady=5)
+
+        # loop
+        for record in records:
+            name_editor.insert(0, record[0])
+            fathers_name_editor.insert(0, record[1])
+            mothers_name_editor.insert(0, record[2])
+            address_editor.insert(0, record[3])
+            gender_editor.insert(0,record[4])
+            date_of_birth_editor.insert(0, record[5])
+            phone_num_editor.insert(0,record[6])
+
+
+
+
+
+
+        # Create a update button
+        edit_btn = Button(editor, font=("Times", 15, "bold"),bg="lightblue", text=" SAVE ", command=update)
+        edit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=125)
+
+
+
+
+
+    #Creating an update function
