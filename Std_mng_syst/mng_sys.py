@@ -239,3 +239,44 @@ def login_page():
 
 
     #Creating an update function
+    def update():
+        # Create a databases or connect to one
+        conn = sqlite3.connect('address_book.db')
+
+        # Create cursor
+        c = conn.cursor()
+
+        record_id = delete_box.get()
+
+        c.execute("""UPDATE addresses SET
+            name=:name,
+            fathers_name:fathers_name,
+            mothers_name:mothers_name,
+            address:address,
+            gender:gender,
+            date_of_birth:date_of_birth,
+            phone_num:phone_num
+            
+            WHERE oid =:oid""",
+                {'name':name_editor.get(),
+                'fathers_name':fathers_name.get(),
+                'mothers_name':mothers_name.get(),
+                'address':address.get(),
+                'gender':gender.get(),
+                'date_of_birth':date_of_birth.get(),
+                'phone_num':phone_num.get(),
+                'oid':record_id
+             })
+
+        conn.commit()
+        conn.close()
+        #Destroying all the data and closing window
+        editor.destroy()
+
+
+
+
+
+
+
+
