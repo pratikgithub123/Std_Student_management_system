@@ -8,6 +8,38 @@ from tkinter import Tk
 
 
 
+def register():
+    global register_screen
+    register_screen = Toplevel(main_screen)
+    register_screen.title("Register")
+    register_screen.geometry("300x250")
+    register_screen.configure(bg="skyblue")
+    register_screen.iconbitmap("C:/Users/hp/PycharmProjects/Std_mng_syst/Std_mng_syst/register.ico")
+
+
+    global username
+    global password
+    global username_entry
+    global password_entry
+    username = StringVar()
+    password = StringVar()
+
+    Label(register_screen, text="Please enter details below", bg="black",fg='white',font=("Times",20,"bold")).pack()
+    Label(register_screen, text="").pack()
+    username_lable = Label(register_screen, bg="skyblue",text="Username  ",font=("Times", "12", "bold",))
+    username_lable.pack()
+    username_entry = Entry(register_screen, textvariable=username,font=("Times", "10", "bold"))
+    username_entry.pack()
+    password_lable = Label(register_screen, bg="skyblue", text="Password  ",font=("Times", "12", "bold"))
+    password_lable.pack()
+    password_entry = Entry(register_screen, textvariable=password,font=("Times", "10", "bold"))
+    password_entry.pack()
+    Label(register_screen, text="").pack()
+    Button(register_screen, text="Register", width=10, height=1 ,font=("Times", "12", "bold"), command=register_user).pack()
+
+
+
+
 
 # designing main window
 def main_account_screen():
