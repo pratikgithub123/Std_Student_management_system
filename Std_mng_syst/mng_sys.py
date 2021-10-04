@@ -128,6 +128,11 @@ def login_page():
                 record[4]) + ' ' + str(record[5]) + ' ' + str(record[6]) +' ' +str(record[7])+ "\n"
 
         delete_box.delete(0, END)
+
+        query_label = Label(details_frame, text=print_record, font=("Times", 10, "bold"))
+        query_label.place(x=0, y=0)
+
+
         conn.commit()
         conn.close()
         messagebox.showinfo("Deleted successfully", "Data Deleted sucessfully")
@@ -250,23 +255,23 @@ def login_page():
 
         c.execute("""UPDATE addresses SET
             name=:name,
-            fathers_name:fathers_name,
-            mothers_name:mothers_name,
-            address:address,
-            gender:gender,
-            date_of_birth:date_of_birth,
-            phone_num:phone_num
+            fathers_name=:fathers_name,
+            mothers_name=:mothers_name,
+            address=:address,
+            gender=:gender,
+            date_of_birth=:date_of_birth,
+            phone_num=:phone_num
             
             WHERE oid =:oid""",
-                {'name':name_editor.get(),
-                'fathers_name':fathers_name.get(),
-                'mothers_name':mothers_name.get(),
-                'address':address.get(),
-                'gender':gender.get(),
-                'date_of_birth':date_of_birth.get(),
-                'phone_num':phone_num.get(),
-                'oid':record_id
-             })
+                 {'name':name_editor.get(),
+                 'fathers_name':fathers_name.get(),
+                 'mothers_name':mothers_name.get(),
+                 'address':address.get(),
+                 'gender':gender.get(),
+                 'date_of_birth':date_of_birth.get(),
+                 'phone_num':phone_num.get(),
+                 'oid':record_id
+                 })
 
         conn.commit()
         conn.close()
