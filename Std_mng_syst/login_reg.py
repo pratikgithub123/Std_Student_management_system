@@ -37,7 +37,39 @@ def register():
     Label(register_screen, text="").pack()
     Button(register_screen, text="Register", width=10, height=1 ,font=("Times", "12", "bold"), command=register_user).pack()
 
+def login():
+    global login_screen
+    login_screen = Toplevel(main_screen)
+    login_screen.title("Login")
+    login_screen.geometry("300x250")
+    login_screen.configure(bg="lightblue")
+    login_screen.iconbitmap("C:/Users/hp/PycharmProjects/Std_mng_syst/Std_mng_syst/data.ico")
 
+
+
+
+
+    Label(login_screen, text="Enter the details  to login",bd=5,bg='black',fg='white',font=("Times",20,"bold")).pack()
+    Label(login_screen, text="").pack(pady=1)
+
+    global username_verify
+    global password_verify
+
+    username_verify = StringVar()
+    password_verify = StringVar()
+
+    global username_login_entry
+    global password_login_entry
+
+    Label(login_screen, bg="lightblue",text="Username  ",font=("Times", "12", "bold")).pack(pady=1)
+    username_login_entry = Entry(login_screen, textvariable=username_verify,font=("Times", "10", "bold"))
+    username_login_entry.pack()
+    Label(login_screen, text="").pack()
+    Label(login_screen,bg="lightblue", text="Password  ",font=("Times", "12", "bold")).pack(pady=1)
+    password_login_entry = Entry(login_screen, textvariable=password_verify,font=("Times", "10", "bold"))
+    password_login_entry.pack()
+    Label(login_screen, text="").pack()
+    Button(login_screen, text="Login",bg="skyblue", width=10, height=1, font=("Times", "12", "bold"),command=login_verify).pack()
 
 
 
