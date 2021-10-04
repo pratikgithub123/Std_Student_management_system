@@ -394,3 +394,25 @@ def login_page():
 
 
 
+    # details and scrollbar
+    sc_x = ttk.Scrollbar(details_frame, orient=HORIZONTAL)
+    sc_x.pack(side=BOTTOM, fill=X)
+    sc_y = ttk.Scrollbar(details_frame, orient=VERTICAL)
+    sc_y.pack(side=RIGHT, fill=Y)
+
+    sc_x.pack(side=BOTTOM, fill=X)
+    sc_y.pack(side=RIGHT, fill=Y)
+    # commit change
+    conn.commit()
+
+    # close connection
+    conn.close()
+
+
+
+
+
+    mainloop()
+
+
+
