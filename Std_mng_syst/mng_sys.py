@@ -280,3 +280,117 @@ def login_page():
 
 
 
+    def exit_fun():
+        ask = messagebox.askyesno ("exit", "Do you want to exit?")
+        if ask == 1:
+            root.destroy()
+
+
+    root = Tk()
+    root.title('Student Management System')
+
+    root.geometry('900x500')
+    root.iconbitmap("graduate.ico")
+
+
+    # dataframe
+    DataFrame = Frame(root, bd=10, bg="skyblue", relief=RIDGE, padx=20, pady=20)
+    DataFrame.place(x=0, y=0, width=900, height=400)
+
+    # dataframe left
+    DataFrameLeft = LabelFrame(DataFrame, bd=10, bg="lightblue", relief=RIDGE, padx=20, text="Students Details",
+                                   fg="black", font=("Times", 13, "bold"))
+    DataFrameLeft.place(x=0, y=5, width=500, height=300)
+
+
+
+    # Create text boxes
+    name = Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white", width=30)
+    name.grid(row=0, column=1,pady=5)
+
+    fathers_name = Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white", width=30)
+    fathers_name.grid(row=1, column=1,pady=5)
+
+    mothers_name = Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white", width=30)
+    mothers_name.grid(row=2, column=1,pady=5)
+
+    address = Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white", width=30)
+    address.grid(row=3, column=1,pady=5)
+
+    gender = Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white", width=30)
+    gender.grid(row=3, column=1,pady=5)
+
+    date_of_birth = Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white", width=30)
+    date_of_birth.grid(row=4, column=1,pady=5)
+
+    phone_num= Entry(DataFrameLeft, font=("Times", 15, "bold"),bg="white",width=30)
+    phone_num.grid(row=17,column=1,pady=5)
+
+
+
+
+    # Create textbox labels
+    name_label = Label(DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue", text="Students Name")
+    name_label.grid(row=0, column=0,pady=5)
+
+    fathers_name_label = Label(DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue", text="Fathers Name")
+    fathers_name_label.grid(row=1, column=0,pady=5)
+
+    mothers_name_label = Label(DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue", text="Mothers Name")
+    mothers_name_label.grid(row=2, column=0,pady=5)
+
+    address_label = Label(DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue", text="Adress")
+    address_label.grid(row=3, column=0,pady=5)
+
+    gender_label = Label( DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue",text="Gender")
+    gender_label.grid(row=3, column=0,pady=5)
+
+    date_of_birth_label = Label( DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue",text="DOB")
+    date_of_birth_label.grid(row=4, column=0,pady=5)
+
+    phone_num_label =Label(DataFrameLeft, font=("Times", 15, "bold"),bg="lightblue",text="Phone No")
+    phone_num_label.grid(row=17,column=0,pady=5)
+
+
+
+
+    #Data Frame Right
+    DataFrameRight = LabelFrame(DataFrame, bd=10, bg="lightblue", relief=RIDGE, padx=18,
+                                    fg="darkgreen", font=("Times", 13, "bold"))
+    DataFrameRight.place(x=500, y=5, width=300, height=300)
+    font = ("Times", 10, "bold")
+
+
+    delete_box_label = Label(DataFrameRight, font=("Times", 12, "bold"),bg="lightblue", text="ID")
+    delete_box_label.grid(row=3, column=0,pady=5)
+
+    delete_box = Entry(DataFrameRight, font=("Times", 10,"bold" ),bg="white", width=30)
+    delete_box.grid(row=3, column=1,pady=5)
+
+    # Create submit button
+
+    submit_btn = Button(DataFrameRight, font=("Times", 12, "bold"),bg="lightblue", text="Add", command=submit)
+    submit_btn.grid(row=1, column=1,ipadx=10, padx=7, pady=5)
+
+    # Create query button
+
+    query_btn = Button(DataFrameRight, font=("Times", 12, "bold"),bg="lightblue", text="Display", command=query)
+    query_btn.grid(row=2, column=1, padx=7, pady=5)
+
+
+    # Create a delete button
+    delete_btn = Button(DataFrameRight, font=("Times", 12, "bold"),bg="lightblue", text="Delete", command=delete)
+    delete_btn.grid(row=5, column=1, padx=7, pady=5)
+
+    # Create a update button
+    edit_btn = Button(DataFrameRight, font=("Times", 12, "bold"),bg="lightblue", text="Update", command=edit)
+    edit_btn.grid(row=4, column=1, padx=7, pady=5)
+
+    exit_btn=Button(DataFrameRight, font=("Times", 12, "bold"),bg="lightblue", text="Exit", command=exit_fun)
+    exit_btn.grid(row=6, column=1,ipadx=10, padx=7, pady=5)
+
+    details_frame = LabelFrame(root, bd=10, relief=RIDGE,text="Students Records", font=("Times", 12, "bold"))
+    details_frame.place(x=0, y=400, width=900, height=100)
+
+
+
