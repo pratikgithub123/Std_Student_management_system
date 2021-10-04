@@ -85,7 +85,6 @@ def register_user():
 
     messagebox.showinfo("Success","Registration Success")
 
-
 def login_verify():
     username1 = username_verify.get()
     password1 = password_verify.get()
@@ -105,7 +104,6 @@ def login_verify():
     else:
         user_not_found()
 
-
 #popup for login sucess
 
 def login_sucess():
@@ -113,7 +111,7 @@ def login_sucess():
     messagebox.showinfo("Login","Login Success")
 
     login_page()
-    login.destroy()
+
 
 
 #popup for password not recognised
